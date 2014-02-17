@@ -10,12 +10,17 @@ def print_time_consume():
 	now = datetime.datetime.now()
 	print "The time used in this calculation is %s" % (now - __start__)
 
-def print_head(number):
+def print_head(number, title=None):
 
 	print "---------------------------------------------"
-	print "  Project Euler Solution for Problem %03d" % number
-	print "        longwosion@gmail.com "
+	print "      Project Euler (projecteuler.net)       "
 	print "---------------------------------------------"
+
+	if title:
+		print "\nProblem %03d: %s \n\n" % (number, title)
+	else:
+		print "\nProblem %03d \n\n" % number
+
 
 	time_start()
 

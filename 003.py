@@ -1,6 +1,6 @@
 from common import print_head, print_result
 
-print_head(2)
+print_head(3)
 
 result = 0
 
