@@ -1,5 +1,4 @@
-from common import print_head, print_result
-print_head(13, title="Large sum")
+__title__ = "Large sum"
 
 data = """37107287533902102798797998220837590246510135740250
 46376937677490009712648124896970078050417018260538
@@ -102,18 +101,19 @@ data = """37107287533902102798797998220837590246510135740250
 20849603980134001723930671666823555245252804609722
 53503534226472524250874054075591789781264330331690"""
 
-big_numbers = data.split("\n")
+def solve():
+	global data
+	big_numbers = data.split("\n")
+	from common.bignumber import BigInt
+	from common import log
 
-from common.bignumber import BigInt
+	number = [BigInt(s) for s in big_numbers]
 
-number = [BigInt(s) for s in big_numbers]
+	s = BigInt("0")
 
-s = BigInt("0")
+	for i in number:
+		s.add(i)
 
-for i in number:
-	s.add(i)
-
-s = str(s)
-print "The big sum of all number is %s" % str(s)
-
-print_result(s[0:10])
+	s = str(s)
+	log("The big sum of all number is %s" % str(s))
+	return s[0:10]

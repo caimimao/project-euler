@@ -1,7 +1,8 @@
-from common import print_head, print_result
-print_head(11, title="Largest product in a grid")
+__title__ = "Largest product in a grid"
 
-data = """
+
+def solve():
+	data = """
 08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
 81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65
@@ -24,39 +25,37 @@ data = """
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48
 """
 
-data = data.split("\n")
-grids = []
-for line in data:
-	if line != "":
-		grids.append([int(i) for i in line.split(" ")])
+	data = data.split("\n")
+	grids = []
+	for line in data:
+		if line != "":
+			grids.append([int(i) for i in line.split(" ")])
 
-x_limit = 20
-y_limit = 20
+	x_limit = 20
+	y_limit = 20
 
-fours = []
-# --
-for x in range(0, x_limit-3):
-	for y in range(0, y_limit):
-		fours.append([grids[y][x], grids[y][x+1], grids[y][x+2], grids[y][x+3]])
-# |
-for x in range(0, x_limit):
-	for y in range(0, y_limit-3):
-		fours.append([grids[y][x], grids[y+1][x], grids[y+2][x], grids[y+3][x]])
-# \
-for x in range(0, x_limit):
-	for y in range(0, y_limit):
-		if (x+3<x_limit) and (y+3<y_limit) :
-			fours.append([grids[y][x], grids[y+1][x+1], grids[y+2][x+2], grids[y+3][x+3]])
-# /
-for x in range(0, x_limit):
-	for y in range(0, y_limit):
-		if (x-3>0) and (y+3<y_limit) :
-			fours.append([grids[y][x], grids[y+1][x-1], grids[y+2][x-2], grids[y+3][x-3]])
+	fours = []
+	# --
+	for x in range(0, x_limit-3):
+		for y in range(0, y_limit):
+			fours.append([grids[y][x], grids[y][x+1], grids[y][x+2], grids[y][x+3]])
+	# |
+	for x in range(0, x_limit):
+		for y in range(0, y_limit-3):
+			fours.append([grids[y][x], grids[y+1][x], grids[y+2][x], grids[y+3][x]])
+	# \
+	for x in range(0, x_limit):
+		for y in range(0, y_limit):
+			if (x+3<x_limit) and (y+3<y_limit) :
+				fours.append([grids[y][x], grids[y+1][x+1], grids[y+2][x+2], grids[y+3][x+3]])
+	# /
+	for x in range(0, x_limit):
+		for y in range(0, y_limit):
+			if (x-3>0) and (y+3<y_limit) :
+				fours.append([grids[y][x], grids[y+1][x-1], grids[y+2][x-2], grids[y+3][x-3]])
 
-product_of_fours = []
-for a, b, c, d in fours:
-	product_of_fours.append(a*b*c*d)
+	product_of_fours = []
+	for a, b, c, d in fours:
+		product_of_fours.append(a*b*c*d)
 
-product_of_fours.sort()
-
-print_result(product_of_fours[-1])
+	return max(product_of_fours)

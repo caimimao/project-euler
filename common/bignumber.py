@@ -47,11 +47,3 @@ class BigInt:
 
 		if extra_number != 0:
 			self.int_array.append(extra_number % group_number)
-
-
-
-
-
-
-
-

@@ -1,42 +1,39 @@
-from common import print_head, print_result
+__title__ = "Largest prime factor"
+from common import log
 
-print_head(3)
+def solve() :
+	result = 0
+	bignum = 600851475143
+	from common.math import find_one_factor, isprime
 
-result = 0
+	all_factors = []
 
-bignum = 600851475143
-
-from common.math import find_one_factor, isprime
-
-all_factors = []
-
-def findall(number):
-	print "number=%d" % number
-	a = find_one_factor(number)
-	if a != 0:
-		if isprime(a):
-			print a
-			all_factors.append(a)
-		else:
-			findall(a)
-
-		while a != 0 and number>0:
-			number = number / a
-			print "number=%d" % number
-			a = find_one_factor(number)
-			if a == 0:
-				print number
-				all_factors.append(number)
-				return
+	def findall(number):
+		log("number=%d" % number)
+		a = find_one_factor(number)
+		if a != 0:
+			if isprime(a):
+				log(a)
+				all_factors.append(a)
 			else:
-				if isprime(a):
-					print a
-					all_factors.append(a)
+				findall(a)
+
+			while a != 0 and number>0:
+				number = number / a
+				log("number=%d" % number)
+				a = find_one_factor(number)
+				if a == 0:
+					log(number)
+					all_factors.append(number)
+					return
 				else:
-					b = a
-					findall(b)
+					if isprime(a):
+						log(a)
+						all_factors.append(a)
+					else:
+						b = a
+						findall(b)
 
-findall(bignum)
-all_factors.sort()
-
-print_result(all_factors[len(all_factors)-1])
+	findall(bignum)
+	all_factors.sort()
+	return all_factors[-1]

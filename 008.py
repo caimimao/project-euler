@@ -1,6 +1,4 @@
-from common import print_head, print_result
-
-print_head(8, title="Largest product in a series")
+__title__ = "Largest product in a series"
 
 string_number = """
 73167176531330624919225119674426574742355349194934
@@ -24,8 +22,7 @@ string_number = """
 05886116467109405077541002256983155200055935729725
 71636269561882670428252483600823257530420752963450
 """
-
-string_number = "".join(string_number.split("\n"))
+from common import log
 
 def product_of_list(number):
 	p = 1
@@ -33,14 +30,15 @@ def product_of_list(number):
 		p = p * int(i)
 	return p
 
-l = len(string_number)
-p = []
-print "Length of this string is %d" % l
-for i in range(0, l-5):
-	numbers =  list(string_number[i:i+5])
-	p.append(product_of_list(numbers))
+def solve():
+	global string_number
+	string_number = "".join(string_number.split("\n"))
+	l = len(string_number)
+	p = []
+	log("Length of this string is %d" % l)
+	for i in range(0, l-5):
+		numbers =  list(string_number[i:i+5])
+		p.append(product_of_list(numbers))
 
-p.sort()	
-
-print_result(p[-1])
+	return max(p)
 	

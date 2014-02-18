@@ -1,9 +1,6 @@
-from common import print_head, print_result
+__title__ = "10001st prime"
 
-print_head(7, title="10001st prime")
-
-from common.math import get_prime_list
-
-primes = get_prime_list(10001)
-print primes
-print_result(primes[-1])
+def solve():
+	from common.math import get_prime_list
+	primes = get_prime_list(10001)
+	return primes[-1]

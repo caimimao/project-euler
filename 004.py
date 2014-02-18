@@ -1,6 +1,4 @@
-from common import print_head, print_result
-
-print_head(4, title="Largest palindrome product")
+__title__ = "Largest palindrome product"
 
 def is_palindromic(number):
 	single_numbers = []
@@ -21,17 +19,18 @@ def is_palindromic(number):
 	
 	return True
 
-result = 0
 
-for i in range(999, 99, -1):
-	for j in range(999, 99, -1):
-		p = i * j
+def solve():
+	result = 0
 
-		if result == 0:
-			if is_palindromic(p): 
-				result = p
-		else:
-			if p>result and is_palindromic(p):
-				result = p
+	for i in range(999, 99, -1):
+		for j in range(999, 99, -1):
+			p = i * j
 
-print_result(result)
+			if result == 0:
+				if is_palindromic(p): 
+					result = p
+			else:
+				if p>result and is_palindromic(p):
+					result = p
+	return result
