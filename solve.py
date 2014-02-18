@@ -24,7 +24,7 @@ def solve_one(module_name, quite=True, corrent_answer=None):
 				ok =  "*" if (str(result) == corrent_answer) else ""
 			
 			time = time_stop()
-			print "Problem %s - %s - %s - %s" % (module_name, result, ok, time)
+			print "Problem %s - %20s - %s - %s" % (module_name, result, ok, time)
 		else:
 			print_result(result)
 	except ImportError as e:
