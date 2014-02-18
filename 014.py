@@ -6,17 +6,23 @@ __title__ = "Longest Collatz sequence"
 def solve():
 	from common import log
 
+	cash = {}
+
 	limit = 1000000
 	def length_of_sequence(number):
 		count = 1
 		start = number
 		while start != 1:
-			if start % 2 == 0:
+			if start & 1 == 0:
 				start = start >> 1
 			else:
 				start = start+start+start + 1
-
-			count = count + 1
+			if start in cash:
+				count = count + cash[start]
+				start = 1
+			else:
+				count = count + 1
+		cash[number] = count
 		return count
 
 	test_number = 2

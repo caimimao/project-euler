@@ -68,22 +68,22 @@ def get_prime_list(count):
 	return primes
 
 def get_prime_below(number):
-	number_map = {}
+
+	number_map = [x for x in range(0, number+1)]
+	number_map[0] = 0
+	number_map[1] = 0
 	start = 2
 
 	while start<number:
-		if not number_map.has_key(start):
-			c = number/start
-			for i in range(2, c+1):
-				number_map[start*i] = False
+		if number_map[start] != 0:
+			start_index = start + start
+			while start_index <= number:
+				number_map[start_index] = 0
+				start_index = start_index + start
 		start = start + 1
 
-	primes = []
-	for i in range(2, number+1):
-		if not number_map.has_key(i):
-			primes.append(i)
+	primes = filter(None, number_map)
 	return primes
-
 
 
 

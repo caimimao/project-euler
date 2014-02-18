@@ -10,8 +10,8 @@ def sum_of_list(numbers):
 
 from common import log
 def solve():
-	primes = get_prime_below(10)
-	log(sum_of_list(primes))
-	primes = get_prime_below(2000000)
-	log(sum_of_list(primes))
-	return sum_of_list(primes)
+	primes = get_prime_below(2000001)
+	s = sum_of_list(primes)
+	log(s)
+	return s
+

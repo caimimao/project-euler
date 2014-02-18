@@ -20,4 +20,4 @@ def solve():
 	for name in names:
 		total = total + line* name_to_number(name)
 		line = line + 1
-	print total
+	return total
