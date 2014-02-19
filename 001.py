@@ -1,7 +1,7 @@
 __title__ = "Multiples of 3 and 5"
 
 def solve() :
-	from common.math import sum_of_nature
+	from common.util import sum_of_nature
 	
 	top_number = 1000 - 1
 	n3 = (top_number/3)

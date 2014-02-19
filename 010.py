@@ -1,6 +1,6 @@
 __title__ = "Summation of primes"
 
-from common.math import get_prime_below
+from common.util import get_prime_below
 
 def sum_of_list(numbers):
 	sum = 0

@@ -4,7 +4,7 @@ from common import log
 def solve() :
 	result = 0
 	bignum = 600851475143
-	from common.math import find_one_factor, isprime
+	from common.util import find_one_factor, isprime
 
 	all_factors = []
 

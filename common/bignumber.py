@@ -24,6 +24,13 @@ class BigInt:
 			s = str(i) + s
 		return s
 
+	def clone(self):
+		c = BigInt("")
+		c.int_array = list(self.int_array)
+
+	def len(self):
+		return len(self.int_array)
+
 	def add(self, obj):
 		l1 = len(self.int_array)
 		l2 = len(obj.int_array)

@@ -1,6 +1,6 @@
 __title__ ="Smallest multiple"
 
-from common.math import gcd, lcm
+from common.util import gcd, lcm
 
 def solve():
 	limit = 21

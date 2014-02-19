@@ -1,6 +1,6 @@
 __title__ = "Highly divisible triangular number"
 
-from common.math import get_prime_below
+from common.util import get_prime_below
 from common import log
 
 def solve():
