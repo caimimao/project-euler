@@ -11,25 +11,25 @@ def solve():
 	p = 200
 
 	def get_comb(p, r):
-
-		if p == 1:
+		#print (p, coins[r:l], "--------")
+		if p == 1 or r+1 == l:
+			#print (p, coins[r:l], "========== 1")
 			return 1
 
 		test = p
 		s = 0
-		for i in range(r, l):
-			coin = coins[i]
-			num = get_comb(test, r+1)
-			s = s + num
-			while test >= coin:
-				test = test - coin
-				if test == 0:
-					s = s + 1
-				else:
-					num = get_comb(test - coin, r+1)
-					s = s + num
+		coin = coins[r]
+		num = get_comb(test, r+1)
+		s = s + num
+		while test >= coin:
+			test = test - coin
+			if test == 0:
+				s = s + 1
+			else:
+				num = get_comb(test, r+1)
+				s = s + num
 		
-		print (p, coins[r:l])		
+		#print (p, coins[r:l], "========== %d" % s)		
 		return s
 
-	print get_comb(4, 0)
+	return get_comb(200, 0)

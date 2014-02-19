@@ -21,7 +21,7 @@ def solve_one(module_name, quite=True, corrent_answer=None):
 		result = mod.solve()
 		if quite:
 			if corrent_answer:
-				ok =  "*" if (str(result) == corrent_answer) else ""
+				ok =  "*" if (str(result) == corrent_answer) else "x"
 			
 			time = time_stop()
 			print "Problem %s - %20s - %s - %s" % (module_name, result, ok, time)
