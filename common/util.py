@@ -70,12 +70,14 @@ def get_prime_list(count):
 	return primes
 
 def get_prime_below_seive(number):
+	from math import sqrt
 	number_map = [x for x in range(0, number+1)]
 	number_map[0] = 0
 	number_map[1] = 0
 	start = 2
 
-	while start<number:
+	root_of_number = sqrt(number)+1
+	while start<root_of_number:
 		if number_map[start] != 0:
 			start_index = start + start
 			while start_index <= number:
