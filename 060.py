@@ -37,10 +37,8 @@ def solve():
         else:
             return False
 
-    print '-------'
     n = len(primes)
     n = 1200
-    print primes[1200]
     g = [[] for i in xrange(0, n)]
     for i in xrange(0, n):
         for j in xrange(i+1, n):

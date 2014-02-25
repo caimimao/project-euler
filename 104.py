@@ -29,8 +29,8 @@ def solve():
         f1 = tmp
         if is_pandigital(f2):
             if is_pandigital(first_digits_of_fib(k, 9)):
-                print f2
-                print first_digits_of_fib(k, 9)
+                log(f2)
+                log(first_digits_of_fib(k, 9))
                 return k
         k = k + 1
 

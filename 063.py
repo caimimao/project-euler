@@ -14,7 +14,6 @@ def solve():
     s = 0
     for i in xrange(1, 10):
         n = 1
-        print i
         while True:
             a = pow(i, n)
             c = count(a)

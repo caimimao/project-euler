@@ -20,7 +20,6 @@ def solve():
 	n = 12
 	for s in range(2, n/2+1):
 		a = (choose(n, 2*s)*choose(2*s, s))
-		print a
 		result = result + a/2 - a/(s+1)
 
 	return result
