@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-__title__ = ""
+__title__ = "Efficient exponentiation"
 
 def solve():
 
@@ -11,7 +11,7 @@ def solve():
     paths[2] = [[1,2]]
 
     # Generate all paths
-    s = 1
+    s = 0
     from common import log
     for i in range(2, limit):
         for path in paths[i]:

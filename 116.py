@@ -26,6 +26,6 @@ def solve():
                 ff[i] = ff[i-1]
         return ff[n]
 
-    print f(2,50) + f(3, 50) + f(4, 50)
+    return f(2,50) + f(3, 50) + f(4, 50)
 
 
