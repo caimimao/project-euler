@@ -11,7 +11,8 @@ Python solver for Project Euler
 
 def solve_one(module_name, quite=True, corrent_answer=None):
 	try:
-		mod = __import__(module_name, fromlist=['*'])
+		module_full_name = "%03d.%0s" % (int(module_name) / 100 * 100 + 100, module_name)
+		mod = __import__(module_full_name, fromlist=['*'])
 		title =  mod.__title__  if hasattr(mod, '__title__') else None
 		if quite:
 			time_start()
@@ -28,6 +29,7 @@ def solve_one(module_name, quite=True, corrent_answer=None):
 		else:
 			print_result(result)
 	except ImportError as e:
+		print e
 		if not str(e).startswith('No module named'):
 			import traceback
 			traceback.print_exc()

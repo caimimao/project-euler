@@ -10,10 +10,11 @@ def main():
 
 	if len(args)>0:
 		filename = "%03d.py" % int(args[0])
-		if path.isfile(filename):
+		folder = "%03d/" % (int(args[0]) // 100 * 100 + 100)
+		if path.isfile(folder+filename):
 			print "ERROR, python file %s already exist." % filename
 		else:
-			f = open(filename, "w")
+			f = open(folder+filename, "w")
 			f.write('# -*- coding: utf-8 -*-\n\n')
 			f.write('__title__ = ""\n\n')
 			f.write('def solve():\n')
